@@ -1,0 +1,21 @@
+{
+  "name": "shopping_list",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "chai": "^3.2.0",
+    "chai-http": "^1.0.0",
+    "express": "^4.13.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sam q",
+  "license": "ISC"
+}

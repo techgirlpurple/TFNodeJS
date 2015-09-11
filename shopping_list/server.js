@@ -37,9 +37,11 @@ Storage.prototype.delete = function (id) {
 //update by id
 Storage.prototype.update = function (id) {
     //for or foreach loop
+    //var item = {name: name, id: id};
     for (var i = 0; i < storage.items.length; i++ ) {
         if (this.items[i].id === id) {
             this.items[i].name = 'cookie';
+            // this.items[i].name = name;
             return true;
         }
     }
@@ -81,15 +83,15 @@ app.delete('/items/:id',  jsonParser, function(req, res) {
 
 
 //add update
-//app.update('/items/:id',  jsonParser, function(req, res) {
-//    var id = +req.params.id;
+app.update('/items/:id',  jsonParser, function(req, res) {
+    var id = +req.params.id;
 
-//    if (storage.update(id)) {
-//        return res.status(200).end();
-//    }
+    if (storage.update(id)) {
+        return res.status(200).end();
+    }
     
-//    res.status(404).end();
-//});
+    res.status(404).end();
+});
 
 //end add update
 

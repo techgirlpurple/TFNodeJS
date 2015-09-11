@@ -39,7 +39,7 @@ Storage.prototype.update = function (id) {
     //for or foreach loop
     for (var i = 0; i < storage.items.length; i++ ) {
         if (this.items[i].id === id) {
-            this.items.name = 'cookie';
+            this.items[i].name = 'cookie';
             return true;
         }
     }

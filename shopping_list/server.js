@@ -35,17 +35,20 @@ Storage.prototype.delete = function (id) {
 
 
 //update by id
-Storage.prototype.update = function (id) {
+Storage.prototype.update = function (id, name) {
     //for or foreach loop
     //var item = {name: name, id: id};
+    console.log("id=" + id + ", name=" + name);
     for (var i = 0; i < storage.items.length; i++ ) {
         if (this.items[i].id === id) {
-            this.items[i].name = 'cookie';
+            console.log("found item");
+            this.items[i].name = name;
             // this.items[i].name = name;
             return true;
         }
     }
     
+    console.log('not found');
     return false;
 };
 
@@ -83,11 +86,12 @@ app.delete('/items/:id',  jsonParser, function(req, res) {
 
 
 //add update
-app.update('/items/:id',  jsonParser, function(req, res) {
+app.put('/items/:id',  jsonParser, function(req, res) {
     var id = +req.params.id;
-
-    if (storage.update(id)) {
-        return res.status(200).end();
+    var name = req.body.name;
+    
+    if (storage.update(id, name)) {
+        return res.status(202).end();
     }
     
     res.status(404).end();
